@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+		<style>
+		table{
+                width:600px;
+				margin:0 auto;
+				margin-top:200px;
+				border: 2px dotted black;
+				
+                }
+		   table td{
+                
+                font-size:18px;
+                }
+		.btn{
+			text-align:center;
+			padding:10px;
+			margin-top:10px;
+			margin-left:200px;
+		}
+		h2
+		{
+			
+			padding-left:200px;
+		}
+	</style>
+	<title>Assignement</title>
+</head>
+<body>
+<script>
+	function changeText()
+	{
+		
+		var numC = parseInt(document.getElementById('cn').value);
+		var numS = parseInt(document.getElementById('sc').value);
+	
+		//charges for calls - numC
+	
+		var call_cost;
+		var total_c="";
+	    if(numC<=50){
+            var c = (numC*0.50);
+            call_cost=parseFloat(c).toFixed(2);
+            total_c= "Charges for Call :  "+call_cost+"/-";
+			alert(total_c);
+        }
+        
+        else if(numC<=150){
+            var c=((50*0.50) + (numC-50)*0.70) ;
+            call_cost=parseFloat(c).toFixed(2);
+            total_c=("Charges for Call :  "+call_cost+"/-");
+			alert(total_c);
+          }
+        else if(numC<=300){
+            var c=((50*0.50) + (100*0.70) + (numC-150)*0.85);
+            call_cost=parseFloat(c).toFixed(2);
+            total_c=("Charges for Call :  "+call_cost+"/-");
+			alert(total_c);
+            
+        }
+        else{
+            var c=((50*0.50) + (100*0.75) + (150*0.85) + (numC-300)*0.95);
+            call_cost=parseFloat(c).toFixed(2);
+            total_c=("Charges for Call :  "+call_cost+"/-");
+			alert(total_c);
+            
+        }
+		
+		
+		//Charges for SMS
+		var sms_cost;
+		var msg_S;
+		if(numS<=50)
+		{
+			var s = 0;
+			sms_cost=parseFloat(s).toFixed(2);
+			msg_S = "Charges for SMS :"+sms_cost+"/-";
+			alert(msg_S);
+		
+		}
+		else if (numS <=200)
+		{
+			var s = (numS-50)*0.25;
+			sms_cost = parseFloat(s).toFixed(2);
+			msg_S = "Charges for SMS :"+sms_cost+"/-";
+			alert(msg_S);
+		}
+		else if(numS<=400){
+            var s= ((150)*0.25 + (numS-200)*0.40);
+           	sms_cost = parseFloat(s).toFixed(2);
+			msg_S = "Charges for SMS :"+sms_cost+"/-";
+			alert(msg_S);
+        }
+        else{
+            var s= ((150)*0.25 + (200)*0.40 + (numS-400)*0.45);
+          	sms_cost = parseFloat(s).toFixed(2);
+			msg_S = "Charges for SMS :"+sms_cost+"/-";
+			alert(msg_S);
+        }
+		var sms_c = parseFloat(sms_cost);
+		var call_c = parseFloat(call_cost);
+		var res = sms_c + call_c;
+		alert("Total Charges for Calls are: "+call_c+"\nTotal Charges for SMS are: "+sms_c+"\nTotal Charges : "+res+"/-");
+}
+
+
+</script>
+<h2>Assignement 2</h2>
+<form onsubmit='return changeText()';>
+	<table>
+		<tr>
+		<td><label>Enter Number of Calls</label></td>
+		
+		<td><input type='number' id='cn'/></td>
+		</tr>
+		<tr>
+		<td><label>Enter SMS </label></td>
+	
+		
+		<td><input type='number' id='sc'/></td>
+		</tr>
+		<tr>
+		<td><br/><input type='submit' value="Total amount" name='submit'/> </td>		
+		</tr>
+		
+	
+	</table>
+
+
+</form>
+
+	
+</body>
+</html>

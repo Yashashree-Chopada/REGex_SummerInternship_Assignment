@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style>
+		table{
+                width:600px;
+				margin:0 auto;
+				margin-top:200px;
+				border: 2px dotted black;
+				
+                }
+		   table td{
+                
+                font-size:18px;
+                }
+		.btn{
+			text-align:center;
+			padding:10px;
+			margin-top:10px;
+			margin-left:200px;
+		}
+		h2{
+			padding-left:200px;
+		}
+	</style>
+	<title>Assignement</title>
+</head>
+<body>
+
+<script> 
+	function changeText()
+	{
+		var text1 = document.getElementById("text").value;
+		var word = document.getElementById("word").value;
+		var rew = document.getElementById("rw").value;
+		alert(text1+" "+word+ " "+rew);
+	if(text1=="")
+		{
+			alert("Please fill the fields");
+			document.myform.text.focus();
+			return false;
+		}
+		if (word=="")
+		{
+			alert("Please fill the fields");
+			document.myform.word.focus();
+			return false;
+		}
+		if (rew=="")
+		{
+			alert("Please fill the fields");
+			document.myform.rw.focus();
+			return false;
+		
+		}
+		if((text1.includes(word) == false))
+		{
+			alert("The word not fount in sentence");
+			return false;
+			
+		}
+		var res = text1.replaceAll(word, rew);
+		alert(res);
+		return true;
+	}
+</script>
+<h2>Assignement 1</h2>
+<form name ="myform" onsubmit='return changeText()';>
+	<table>
+		<tr>
+		<td><label>Enter Text</label></td>
+		
+		<td><input type='text' id='text' /></td>
+		</tr>
+		<tr>
+		<td><label>Enter word to  replace</label></td>
+		
+		<td><input type='text' id='word'/></td>
+		</tr>
+		<tr>
+		<td><label>Enter word to replace with </label></td>
+		
+		<td><input type='text' id='rw'/></td>
+		
+		</tr>
+		
+		<tr>
+		<td><input class="btn" type='submit' value='Change Text' name='submit'/></td>
+		</tr>
+	 
+		
+	</table>
+
+
+</form>
+
+
+	
+</body>
+</html>
